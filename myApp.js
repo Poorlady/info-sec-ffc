@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
+const helmet = require('helmet');
 
+app.use(express.static('public'));
+app.use(helmet());
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
 
 
 
